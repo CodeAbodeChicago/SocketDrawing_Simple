@@ -1,9 +1,12 @@
+// Set up the port
+var port = process.env.PORT || 8080;
+
 // Require the necessary modules
 var path = require("path");
 var random = require("random-js")();
 var express = require('express');
 var app = express();
-var server = app.listen(8080);
+var server = app.listen(port);
 var io = require('socket.io')(server);
 
 // Serve up the client-side code from public/ to the root (e.g. 127.0.0.1:8080/)
