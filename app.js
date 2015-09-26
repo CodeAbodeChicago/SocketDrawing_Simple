@@ -15,6 +15,7 @@ var staticServer = express.static(publicPath);
 app.use(staticServer);
 
 // Real time communication
+// In this example, the server is just a relay that passes on information.
 io.on('connection', function (socket) {
 	console.log('a user connected');
 
@@ -22,14 +23,6 @@ io.on('connection', function (socket) {
 	// Get the drawing information from the client and pass it on to all 
 	// other clients
 	socket.on("player drawing", function(drawData) {
-		// Example drawData from client: 
-		// {
-		// 	p1: {x: 0, y: 20},		
-		// 	p2: {x: 100, y: 0},
-		//  marker: {
-		//		color: { h: 25, s: 100, b: 100 },
-		//		thickness: 10
-		// }
 		socket.broadcast.emit("player drawing", drawData);	
 	});
 
