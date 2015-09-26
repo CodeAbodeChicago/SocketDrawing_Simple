@@ -1,6 +1,5 @@
-// 
+// _____________________________________________________________________________
 // Global Variables
-//
 
 // Connect to server using socket.io 
 var socket = io();
@@ -10,9 +9,8 @@ var marker;
 var eraser;
 
 
-// 
+// _____________________________________________________________________________
 // p5 Events
-//
 
 function setup() {
 	colorMode(HSB, 360, 100, 100, 1);
@@ -51,9 +49,8 @@ function markerDraw(p1, p2, currentMarker) {
 }
 
 
-// 
+// _____________________________________________________________________________
 // Socket Logic
-//
 
 function sendMarkerMessage(p1, p2, currentMarker) {
 	socket.emit("player drawing", {
