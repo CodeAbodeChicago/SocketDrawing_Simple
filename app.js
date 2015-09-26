@@ -15,7 +15,7 @@ var staticServer = express.static(publicPath);
 app.use(staticServer);
 
 // Real time communication
-// In this example, the server is just a relay that passes on information.
+// In this example, the server is just a relay that passes on information
 io.on('connection', function (socket) {
 	console.log('a user connected');
 
