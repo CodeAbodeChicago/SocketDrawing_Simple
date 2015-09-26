@@ -18,16 +18,6 @@ app.use(staticServer);
 io.on('connection', function (socket) {
 	console.log('a user connected');
 
-	// Player Registration
-	// Give the player a color
-	socket.emit("player registration", {
-		color: {
-			h: random.integer(0, 360),
-			s: 100,
-			b: 100
-		}
-	});
-
 	// Player Drawing
 	// Get the drawing information from the client and pass it on to all 
 	// other clients
@@ -36,8 +26,9 @@ io.on('connection', function (socket) {
 		// {
 		// 	p1: {x: 0, y: 20},		
 		// 	p2: {x: 100, y: 0},
-		//  color: { h: 25, s: 100, b: 100 },
-		//	strokeWeight: 10
+		//  marker: {
+		//		color: { h: 25, s: 100, b: 100 },
+		//		thickness: 10
 		// }
 		socket.broadcast.emit("player drawing", drawData);	
 	});
